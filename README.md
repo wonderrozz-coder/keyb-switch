@@ -46,7 +46,7 @@ Punto Switcher для Linux.
 ## Установка
 
 ```bash
-git clone https://github.com/<логин>/keyb-switch.git
+git clone https://github.com/wonderrozz-coder/keyb-switch.git
 cd keyb-switch
 ./scripts/install.sh
 ```

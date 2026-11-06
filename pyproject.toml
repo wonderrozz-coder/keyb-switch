@@ -23,8 +23,8 @@ classifiers = [
 dependencies = ["evdev>=1.6"]
 
 [project.urls]
-Homepage = "https://github.com/<логин>/keyb-switch"
-Issues = "https://github.com/<логин>/keyb-switch/issues"
+Homepage = "https://github.com/wonderrozz-coder/keyb-switch"
+Issues = "https://github.com/wonderrozz-coder/keyb-switch/issues"
 
 [project.scripts]
 keyb-switch = "kbswitch.cli:main"

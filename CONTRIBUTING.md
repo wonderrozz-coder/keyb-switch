@@ -13,7 +13,7 @@
 ## Изменить код
 
 ```bash
-git clone https://github.com/<логин>/keyb-switch.git
+git clone https://github.com/wonderrozz-coder/keyb-switch.git
 cd keyb-switch
 python3 -m venv .venv
 ./.venv/bin/pip install evdev
