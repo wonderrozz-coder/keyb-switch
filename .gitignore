@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+
+# Local state, never committed
+*.log
+*.sock
+state/
+.idea/
+.vscode/
+*.swp
+
+# Dictionaries are downloaded by `keyb-switch dict`, see dict/README.md
+# (the shipped copies are tracked, the generated cache is not)
+dict/prefixes.json

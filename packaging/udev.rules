@@ -1,0 +1,7 @@
+# keyb-switch: let the user of the active seat read keyboard events.
+#
+# Reading /dev/input/event* is what the daemon needs.  /dev/uinput is only
+# needed for the automated self-test (it emulates a physical keyboard); the
+# normal text injection path goes through wtype and does not need it.
+SUBSYSTEM=="input", KERNEL=="event*", TAG+="uaccess"
+KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
