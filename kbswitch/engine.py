@@ -447,7 +447,9 @@ class Engine:
         if self.blacklisted(config.autocorrect_blacklist):
             return
         letters = _letters_only("".join(entry[0] for entry in self.buffer))
-        minimum = max(3, int(config.live_min_length))
+        # The floor is configurable so the "switch on two letters" variant can be
+        # measured honestly; 3+ is what ships (two letters are too ambiguous).
+        minimum = max(2, int(config.live_min_length))
         if len(letters) < minimum or len(letters) > 32:
             return
         if time.time() < self.suppress_until:

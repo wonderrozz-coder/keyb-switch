@@ -131,6 +131,7 @@ class StaticLayouts:
 
     def __init__(self) -> None:
         self._index: int | None = None
+        self._pinned: int | None = None
 
     def start(self) -> None:
         pass
@@ -143,9 +144,12 @@ class StaticLayouts:
         return False
 
     def layout_index(self) -> int:
-        # Always ask: this fallback exists precisely because the event socket is
-        # unavailable, so a cached value would go stale the moment the user
-        # presses their own layout switch.
+        # An explicitly assigned index wins: tests, scenarios and the live mode
+        # set it right after switching the layout themselves.  Otherwise ask the
+        # compositor, because this fallback exists exactly when no events arrive
+        # and a cached value would go stale as soon as the user switches.
+        if self._pinned is not None:
+            return self._pinned
         try:
             index = hypr.active_layout_index()
         except hypr.HyprlandError:
@@ -156,6 +160,7 @@ class StaticLayouts:
 
     def set_layout_index(self, index: int) -> None:
         self._index = index
+        self._pinned = index
 
     def window_class(self) -> str | None:
         return hypr.active_window_class()
